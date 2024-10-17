@@ -17,7 +17,9 @@ app.use(cors({
     credentials: true
 }));
 
-connectMongoDb('mongodb://localhost:27017/CMS');
+//connectMongoDb('mongodb://localhost:27017/CMS');
+//
+connectMongoDb('mongodb://mongodb:27017/CMS'); // Replace yourDatabaseName with your actual DB name
 
 app.use("/api/users", userRoutes); // Use the user routes
 app.use('/api/schools', schoolRoutes);

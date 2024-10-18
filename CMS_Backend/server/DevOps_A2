@@ -116,3 +116,65 @@ To enhance security, it creates a non-root user to run the application, minimizi
 frontend is running:
 
 Screenshot1
+
+
+
+
+
+Now I am done with my 2nd part:
+docker-compose.yml file with complete things like ith proper setup for each service, including bind mounts and configurations for hot-reloading.:
+
+
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  cms-backend:
+    build:
+      context: ./CMS_Backend/server  # Ensure this points to the correct backend directory
+    container_name: cms-backend
+    ports:
+      - "3001:3001"  # Map backend port
+    volumes:
+      - ./CMS_Backend/server:/app  # Bind mount for hot reloading
+      - /app/node_modules  # Prevent node_modules from being overwritten
+    environment:
+      - NODE_ENV=development
+    command: nodemon index.js  # Use nodemon for hot reloading
+
+  cms-frontend:
+    build:
+      context: ./CMS_Frontend/frontend  # Ensure this points to the correct frontend directory
+    container_name: cms-frontend
+    ports:
+      - "3000:80"  # Map frontend port to Nginx
+    volumes:
+      - ./CMS_Frontend/frontend/build:/app/build  # Mount the build folder for Nginx
+      - ./CMS_Frontend/frontend:/app  # Bind mount for hot reloading
+    depends_on:
+      - cms-backend  # Ensure backend starts before frontend
+    command: npm start  # Start the frontend
+
+volumes:
+  mongo-data:
+
+
+Screenshot2
+screenshot 3
+
+
+
+
+Step No 03:
+
+I choose kustomize for this part becase of its simplicity.
+
+so check kstomize already installed or not:
+screenshot 4

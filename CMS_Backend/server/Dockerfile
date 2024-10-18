@@ -9,9 +9,6 @@ RUN npm install
 # Copy application code
 COPY . .
 
-# Build the application (if you have a build step)
-# RUN npm run build
-
 # Stage 2: Production
 FROM node:alpine
 
@@ -23,6 +20,9 @@ COPY --from=build /app ./
 # Install only production dependencies
 RUN npm install --only=production
 
+# Install nodemon globally for development (optional)
+RUN npm install -g nodemon
+
 # Create a non-root user for security
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 USER appuser
@@ -30,6 +30,6 @@ USER appuser
 # Expose port
 EXPOSE 3001
 
-# Start the application
-CMD ["node", "index.js"]  # Adjust to your server entry point
+# Start the application using nodemon for hot reloading in development mode
+CMD ["nodemon", "index.js"]  # Ensure index.js is the entry point
 

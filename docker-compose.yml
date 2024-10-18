@@ -11,36 +11,35 @@ services:
 
   cms-backend:
     build:
-      context: ./CMS_Backend/server  # Ensure this points to the correct directory
+      context: ./CMS_Backend/server  # Correct path for the backend
     container_name: cms-backend
     ports:
       - "3001:3001"
     volumes:
-      - ./CMS_Backend/server:/app  # Bind mount for hot reloading
-      - /app/node_modules    # Ensure node_modules inside container is not overwritten
+      - ./CMS_Backend/server:/app  # Ensure this maps correctly to your server code
+      - /app/node_modules  # This is good to prevent host node_modules from overriding
     environment:
-      - NODE_ENV=development
+      - NODE_ENV=development  # Ensures it's in development mode
 
   cms-frontend:
     build:
-      context: ./CMS_Frontend/frontend
+      context: ./CMS_Frontend/frontend  # Correct path for the frontend
     container_name: cms-frontend
     ports:
-      - "3000:80"
+      - "3000:80"  # Maps host port 3000 to container port 80
     volumes:
-      - ./CMS_Frontend/frontend:/app  # Bind mount for hot reloading
-    # Use the custom Nginx configuration
+      - ./CMS_Frontend/frontend:/app  # Ensure this maps correctly to your frontend code
     depends_on:
-      - cms-backend  # Ensure the backend is started before the frontend
+      - cms-backend  # Good to ensure backend starts before frontend
 
   nginx:
     image: nginx:latest
     container_name: nginx
     ports:
-      - "80:80"  # Map port 80 of the host to port 80 of the container
+      - "80:80"  # Maps host port 80 to container port 80
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf  # Mount the Nginx config
-      - ./CMS_Frontend/frontend/build:/app/build  # Ensure Nginx serves the build files
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf  # Ensure Nginx configuration is correct
+      - ./CMS_Frontend/frontend/build:/app/build  # This serves your built files
 
 volumes:
   mongo-data:

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cms-frontend
+spec:
+  selector:
+    app: cms-frontend
+  ports:
+    - port: 80  # Match with your container port
+      targetPort: 80
+  type: LoadBalancer  # Use ClusterIP if you don't need external access
+

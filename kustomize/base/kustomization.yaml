@@ -1,0 +1,8 @@
+resources:
+  - backend-deployment.yaml
+  - frontend-deployment.yaml
+  - mongodb-deployment.yaml
+  - backend-service.yaml
+  - frontend-service.yaml
+  - mongodb-service.yaml
+

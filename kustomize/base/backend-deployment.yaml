@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cms-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cms-backend
+  template:
+    metadata:
+      labels:
+        app: cms-backend
+    spec:
+      containers:
+      - name: cms-backend
+        image: ahsan767/cms-backend:latest
+        ports:
+        - containerPort: 3001  # Adjust based on your backend application
+

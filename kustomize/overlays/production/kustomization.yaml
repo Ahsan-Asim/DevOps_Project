@@ -1,0 +1,7 @@
+resources:
+  - ../../base
+nameSuffix: -prod
+commonLabels:
+  env: production
+
+

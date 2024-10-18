@@ -330,6 +330,12 @@ Frontend Access: After configuring the Ingress, I ensured that external traffic 
 
 files are attached.
 
+screenshot 15
+16
+17
+18
+19
+
 
 
 Part 6:
@@ -342,7 +348,26 @@ cms-role-binding.yaml
 
 
 
-Now for the network policy:
+Now for the others:
+
+Network Policies:
+
+    Define network policies to control traffic between pods:
+        Filename: cms-network-policy.yaml
+
+Secrets Management:
+
+    Create a secret to store sensitive information (e.g., database passwords, API keys):
+        Filename: cms-secrets.yaml
+
+Apply Configurations:
+
+    Use kubectl apply to deploy the above configurations in the Kubernetes cluster.
+
+Verification:
+
+    Check the applied configurations by listing service accounts, roles, role bindings, and secrets:
+        Commands: kubectl get serviceaccounts, kubectl get roles, kubectl get rolebindings, and kubectl get secrets.
 
 
 

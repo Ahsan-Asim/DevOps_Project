@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: cms-network-policy
+  namespace: default
+spec:
+  podSelector:
+    matchLabels:
+      app: cms-backend
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: cms-frontend
+

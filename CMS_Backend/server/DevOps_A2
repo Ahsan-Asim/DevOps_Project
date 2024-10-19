@@ -305,4 +305,44 @@ Verification Steps
  
  screenshot13
  Screensht14
+ 
+ 
+ 
+ Part 5:
+ 
+ Service Discovery and Networking using ingress
+ 
+ steps:
+ 
+ NGINX Ingress Controller Installation: I deployed the NGINX Ingress Controller, which manages external access to services within the cluster.
+
+    File Name: ingress-nginx-manifest.yaml
+
+Ingress Resource Creation: I created an Ingress resource to define routing rules for external traffic directed to the frontend service. This included specifying the host and the corresponding service.
+
+    File Name: cms-ingress.yaml
+
+Ingress Resource Application: I applied the Ingress resource to the cluster to activate the defined routing rules.
+
+Ingress Configuration Verification: I verified the Ingress setup by checking the status and configuration of the Ingress resources.
+
+Frontend Access: After configuring the Ingress, I ensured that external traffic could reach the frontend service through the defined routes.
+
+files are attached.
+
+
+
+Part 6:
+
+RBAC has already done in part 3 and below files are attached for this task:
+
+cms-service-account.yaml
+cms-role.yaml
+cms-role-binding.yaml
+
+
+
+Now for the network policy:
+
+
 

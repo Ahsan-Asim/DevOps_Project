@@ -248,3 +248,26 @@ after testing all deleted
 
 screenshot 8
 
+
+
+now Set up service discovery using Ingress or service mesh (Istio/Linkerd) for advanced use cases.
+
+steps:
+
+1. Install an Ingress Controller
+
+
+2. create cms-ingress.yaml as attached
+
+then run file
+
+
+3. add ip with test link to the sudo notepad file
+
+screenshot10
+
+
+4. now run by using this http://cms.example.com
+
+screesht 11
+

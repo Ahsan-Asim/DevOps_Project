@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: cms-ingress
+  namespace: default
+spec:
+  rules:
+    - host: cms.example.com  # Change this to your domain or use a Minikube IP
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: cms-frontend-prod
+                port:
+                  number: 80
+

@@ -271,3 +271,38 @@ screenshot10
 
 screesht 11
 
+
+
+
+
+Now Part 4:
+steps:
+
+    Create Namespace: A dedicated namespace for MongoDB was created.
+        File: mongodb-namespace.yaml
+
+    Define Persistent Volume (PV): A PV was created to provide storage for MongoDB.
+        File: mongo-pv.yaml
+
+    Define Persistent Volume Claim (PVC): A PVC was created to claim the storage defined in the PV.
+        File: mongo-pvc.yaml
+
+    Create StatefulSet: MongoDB was deployed as a StatefulSet to manage stateful applications.
+        File: mongo-statefulset.yaml
+
+    Deploy Resources: The configuration files were applied to the Kubernetes cluster.
+        Command: kubectl apply -f mongodb-namespace.yaml, kubectl apply -f mongo-pv.yaml, kubectl apply -f mongo-pvc.yaml, kubectl apply -f mongo-statefulset.yaml
+
+Verification Steps
+
+    Check the deployment of StatefulSets and Pods.
+    Verify that the PVC is bound correctly.
+    Access the MongoDB shell to confirm functionality and data persistence.
+    
+    
+    
+ screenshot12
+ 
+ screenshot13
+ Screensht14
+

@@ -12,6 +12,7 @@ spec:
       labels:
         app: cms-frontend
     spec:
+      serviceAccountName: cms-service-account  # Add this line
       containers:
       - name: cms-frontend
         image: ahsan767/cms-frontend:latest  # Replace with your actual frontend image

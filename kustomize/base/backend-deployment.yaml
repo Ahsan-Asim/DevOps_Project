@@ -12,7 +12,8 @@ spec:
       labels:
         app: cms-backend
     spec:
-      containers:
+      serviceAccountName: cms-service-account  # Add this line      
+    containers:
       - name: cms-backend
         image: ahsan767/cms-backend:latest
         ports:

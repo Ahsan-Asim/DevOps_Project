@@ -172,9 +172,79 @@ screenshot 3
 
 
 
-Step No 03:
 
-I choose kustomize for this part becase of its simplicity.
+Part 3:
 
-so check kstomize already installed or not:
-screenshot 4
+I am done with kubernetes clster working by sing kstomization:
+
+
+steps:
+1. setup and installed kubernetes and minikube
+2. install and setup kustomize
+
+
+3. inside main folder of DevOps_Project create 2 folders 1. base 2. overlay
+inside base:
+deployment.yaml
+service.yaml
+kustomization.yaml
+
+
+so basically 3 deployment files, 3 service files and 1 kustomization file and you can see code as files are attache in assignment folder as names:
+  - mongodb-deployment.yaml
+  - mongodb-service.yaml
+  - backend-deployment.yaml
+  - backend-service.yaml
+  - frontend-deployment.yaml
+  - frontend-service.yaml
+  -kustomization.yml
+
+
+
+and inside overlay another directory production and inside production:
+kustomization.yml fiel that conatins for prodyction
+
+
+4. then start minikube:
+screenshot5
+
+
+
+5. then inside production run command for starting things:
+it takes too much time and give so many errors but after somtime:
+screenshot 6
+
+
+as you can see in screenshot that all services are rnning successfully
+
+
+
+7. then try services lke for test start frontend so it atomatically open it in browser:
+
+screenshot 7
+
+
+
+Now RBCA working:
+
+steps:
+
+1. Create a service account 
+you can see attached file named cms-service-account.yaml
+
+then apply mainfiest
+
+2. create role.yaml fle as yo can see attached
+then apply role
+
+3. cms-rolebinding.yaml created attached
+
+apply binding
+
+4. test-pod.yaml for testing creation
+
+after testing all deleted
+
+
+screenshot 8
+

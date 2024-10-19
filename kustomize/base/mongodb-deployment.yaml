@@ -12,6 +12,7 @@ spec:
       labels:
         app: mongodb
     spec:
+      serviceAccountName: cms-service-account  # Add this line
       containers:
       - name: mongodb
         image: mongo:latest
